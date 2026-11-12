@@ -357,11 +357,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="btn-row"><button class="btn btn-back" onclick="back()">Voltar</button><button class="btn btn-primary" onclick="next()">Continuar</button></div>
   </div>
 
-  <!-- 2. OFERTAS -->
+  <!-- 2. SITUAÇÃO -->
+  <div class="step" id="step-situacao">
+    <div class="step-label">Você</div>
+    <h2>Qual é a sua situação hoje?</h2>
+    <div class="options">
+      <div class="option" onclick="selectOption(this,'situacao','planejador com clientes proprios')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Planejador ou consultor com clientes próprios</div></div></div>
+      <div class="option" onclick="selectOption(this,'situacao','assessor ou bancario')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Assessor de investimentos ou bancário</div></div></div>
+      <div class="option" onclick="selectOption(this,'situacao','em outra empresa')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Consultor ou planejador em outra empresa</div></div></div>
+      <div class="option" onclick="selectOption(this,'situacao','em transicao')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Em transição para o planejamento</div></div></div>
+      <div class="option" onclick="selectOption(this,'situacao','outro')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Outro</div></div></div>
+    </div>
+    <div class="field outro" data-outro-de="situacao"><label>Qual?</label><input type="text" data-campo="situacao_outro" placeholder="Conta qual é a sua situação"></div>
+    <p class="error-msg" id="err-situacao">Selecione uma opção (e diga qual, se marcou "outro") para continuar.</p>
+    <div class="btn-row"><button class="btn btn-back" onclick="back()">Voltar</button><button class="btn btn-primary" onclick="next()">Continuar</button></div>
+  </div>
+
+  <!-- 3. OFERTAS -->
   <div class="step" id="step-ofertas">
     <div class="step-label">Suas ofertas</div>
     <h2>Quais ofertas você vende hoje?</h2>
-    <p class="question-hint">Pra cada pacote ou serviço: o nome, quanto tempo dura, quanto custa, como você cobra (fee fixo, mensalidade, percentual sobre o patrimônio, comissão de produto ou uma mistura) e o que o cliente recebe.</p>
+    <p class="question-hint">Pra cada pacote ou serviço: o nome, quanto tempo dura, quanto custa, como você cobra (fee fixo, mensalidade, percentual sobre o patrimônio, comissão de produto ou uma mistura) e o que o cliente recebe. Se ainda não vende planejamento por conta própria, conte o que você faz hoje e como é remunerado.</p>
     <div class="field"><textarea class="tall" data-campo="ofertas" placeholder="Ex: Planejamento completo, 6 meses, R$ 3.600 à vista ou 6x de R$ 600. 6 reuniões, plano de metas e carteira de investimentos. Depois, acompanhamento mensal por R$ 300."></textarea></div>
     <div class="field"><label>Quantos clientes ativos você tem hoje?</label><input type="text" data-campo="clientes_ativos" inputmode="numeric" placeholder="Ex: 18"></div>
     <p class="error-msg" id="err-ofertas">Descreva suas ofertas e diga quantos clientes tem para continuar.</p>
@@ -418,32 +434,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="field outro" data-outro-de="origem_clientes"><label>Qual?</label><input type="text" data-campo="origem_outro" placeholder="Conta de onde vêm"></div>
     <div class="field" style="margin-top:18px"><label>Qual desses traz mais cliente?</label><input type="text" data-campo="canal_principal" placeholder="Ex: indicação, uns 70%"></div>
-    <p class="error-msg" id="err-origem">Marque ao menos uma origem, especifique o "outro" se marcou e diga qual é a principal.</p>
-    <div class="btn-row"><button class="btn btn-back" onclick="back()">Voltar</button><button class="btn btn-primary" onclick="next()">Continuar</button></div>
-  </div>
-
-  <!-- 5. CONTEÚDO -->
-  <div class="step" id="step-conteudo">
-    <div class="step-label">Como os clientes chegam</div>
-    <h2>Hoje você produz conteúdo?</h2>
+    <h3 class="sub">Hoje você produz conteúdo?</h3>
     <div class="options">
       <div class="option" onclick="selectOption(this,'conteudo_frequencia','nao produzo')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Não produzo</div></div></div>
       <div class="option" onclick="selectOption(this,'conteudo_frequencia','de vez em quando')"><div class="option-radio"></div><div class="option-text"><div class="option-title">De vez em quando, sem frequência</div></div></div>
       <div class="option" onclick="selectOption(this,'conteudo_frequencia','toda semana')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Toda semana</div></div></div>
       <div class="option" onclick="selectOption(this,'conteudo_frequencia','quase todo dia')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Quase todo dia</div></div></div>
     </div>
-    <h3 class="sub">O que mais trava você no conteúdo? <span style="font-weight:400;color:var(--muted)">(pode marcar mais de um)</span></h3>
-    <div class="options">
-      <div class="option" onclick="toggleOption(this,'trava_conteudo','nao sei sobre o que falar')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Não sei sobre o que falar</div></div></div>
-      <div class="option" onclick="toggleOption(this,'trava_conteudo','falta tempo')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Falta tempo</div></div></div>
-      <div class="option" onclick="toggleOption(this,'trava_conteudo','falta constancia')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Começo e não mantenho a constância</div></div></div>
-      <div class="option" onclick="toggleOption(this,'trava_conteudo','desconforto com camera')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Não me sinto à vontade na câmera</div></div></div>
-      <div class="option" onclick="toggleOption(this,'trava_conteudo','nao vira cliente')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Produzo, mas não vira cliente</div></div></div>
-      <div class="option" onclick="toggleOption(this,'trava_conteudo','nao sei para quem falo')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Não sei bem pra quem estou falando</div></div></div>
-      <div class="option" onclick="toggleOption(this,'trava_conteudo','outro')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Outro</div></div></div>
-    </div>
-    <div class="field outro" data-outro-de="trava_conteudo"><label>O quê?</label><input type="text" data-campo="trava_conteudo_outro" placeholder="Conta o que trava"></div>
-    <p class="error-msg" id="err-conteudo">Responda as duas perguntas (e especifique o "outro", se marcou) para continuar.</p>
+    <p class="error-msg" id="err-origem">Marque ao menos uma origem, especifique o "outro" se marcou, diga qual é a principal e se produz conteúdo.</p>
     <div class="btn-row"><button class="btn btn-back" onclick="back()">Voltar</button><button class="btn btn-primary" onclick="next()">Continuar</button></div>
   </div>
 
@@ -483,11 +481,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 8. DOR -->
   <div class="step" id="step-dor">
     <div class="step-label">Onde dói</div>
-    <h2>Em uma frase: qual é o maior problema do seu negócio hoje?</h2>
-    <div class="field"><textarea data-campo="maior_problema" placeholder="Pode escrever do jeito que vier"></textarea></div>
+    <h2>Qual é o maior desafio do seu negócio hoje?</h2>
+    <p class="question-hint">Marque até 2.</p>
+    <div class="options">
+      <div class="option" onclick="toggleOption(this,'desafios','atrair clientes')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Atrair clientes</div></div></div>
+      <div class="option" onclick="toggleOption(this,'desafios','converter em venda')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Converter em venda quem chega até mim</div></div></div>
+      <div class="option" onclick="toggleOption(this,'desafios','ticket baixo')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Cobrar mais caro, porque meu ticket está baixo</div></div></div>
+      <div class="option" onclick="toggleOption(this,'desafios','estruturar metodologia')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Estruturar minha metodologia de atendimento</div></div></div>
+      <div class="option" onclick="toggleOption(this,'desafios','tempo ou equipe')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Falta de tempo ou de equipe</div></div></div>
+      <div class="option" onclick="toggleOption(this,'desafios','conteudo com constancia')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Produzir conteúdo com constância</div></div></div>
+      <div class="option" onclick="toggleOption(this,'desafios','outro')"><div class="option-radio square"></div><div class="option-text"><div class="option-title">Outro</div></div></div>
+    </div>
+    <div class="field outro" data-outro-de="desafios"><label>Qual?</label><input type="text" data-campo="desafios_outro" placeholder="Conta qual é o desafio"></div>
+    <div class="field" style="margin-top:18px"><label>Conta em uma frase como isso aparece no seu dia a dia</label><textarea data-campo="maior_problema" placeholder="Pode escrever do jeito que vier"></textarea></div>
     <div class="field"><label>Se pudesse resolver só uma coisa nos próximos 90 dias, qual seria?</label><textarea data-campo="prioridade_90d" placeholder="A coisa que, resolvida, destrava o resto"></textarea></div>
     <div class="field"><label>Daqui a 6 meses, o que precisa ter acontecido pra você dizer que valeu a pena?</label><textarea data-campo="resultado_6m" placeholder="Ex: 30 clientes ativos e uma pessoa cuidando do operacional"></textarea></div>
-    <p class="error-msg" id="err-dor">Responda as três perguntas para continuar.</p>
+    <p class="error-msg" id="err-dor">Marque até 2 desafios (e diga qual, se marcou "outro") e responda as perguntas abertas para continuar.</p>
     <div class="btn-row"><button class="btn btn-back" onclick="back()">Voltar</button><button class="btn btn-primary" onclick="next()">Continuar</button></div>
   </div>
 
@@ -544,14 +553,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const FLOW = [
     { id:'intro',        label:'Começo' },
     { id:'ident',        label:'Você',                    req:['nome','email','whatsapp','instagram'] },
+    { id:'situacao',     label:'Você',                    req:['situacao'], outros:[['situacao','situacao_outro']] },
     { id:'ofertas',      label:'Suas ofertas',            req:['ofertas','clientes_ativos'] },
     { id:'estrutura',    label:'Sua estrutura',           req:['equipe','metodologia'] },
     { id:'numeros',      label:'Seus números',            req:['faturamento_atual','meta_faturamento','reunioes_mes','fechamentos_mes'] },
-    { id:'origem',       label:'Como os clientes chegam', req:['origem_clientes','canal_principal'], outros:[['origem_clientes','origem_outro']] },
-    { id:'conteudo',     label:'Como os clientes chegam', req:['conteudo_frequencia','trava_conteudo'], outros:[['trava_conteudo','trava_conteudo_outro']] },
+    { id:'origem',       label:'Como os clientes chegam', req:['origem_clientes','canal_principal','conteudo_frequencia'], outros:[['origem_clientes','origem_outro']] },
     { id:'investimento', label:'O que você já investiu',  req:['mentorias_anteriores'], ou:INV, extra:() => !respostas.inv_outro || preenchido('inv_outro_qual') },
     { id:'disposicao',   label:'O que você já investiu',  req:['disposicao_12m'] },
-    { id:'dor',          label:'Onde dói',                req:['maior_problema','prioridade_90d','resultado_6m'] },
+    { id:'dor',          label:'Onde dói',                req:['desafios','maior_problema','prioridade_90d','resultado_6m'], outros:[['desafios','desafios_outro']] },
     { id:'decisao',      label:'Pra fechar',              req:['decisao_com'], outros:[['decisao_com','decisao_com_outro']] }
   ];
   let atual = 0;
@@ -571,11 +580,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     respostas[campo] = valor;
     atualizarOutro(campo);
   }
+  const LIMITE = { desafios: 2 };
   function toggleOption(el, campo, valor) {
     if (!Array.isArray(respostas[campo])) respostas[campo] = [];
     const lista = respostas[campo];
     const i = lista.indexOf(valor);
     if (i >= 0) { lista.splice(i, 1); el.classList.remove('selected'); }
+    else if (LIMITE[campo] && lista.length >= LIMITE[campo]) { return; }
     else { lista.push(valor); el.classList.add('selected'); }
     atualizarOutro(campo);
   }
