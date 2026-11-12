@@ -14,11 +14,14 @@ Vale para todo lead de diagnóstico da mentoria: o link é o mesmo pra todos.
 - Projeto no Notion: Mentoria high ticket para planejadores financeiros (Portfólio do Plano Diretor)
 - GTM server-side: container GTM-N9GCCZSW via api.leticiakratka.com.br.
   Evento no envio: `prediag_mentoria_enviado`.
-- Visual: mesma base da Pesquisa de Avanço da Travessia, com paleta oliva e dourado
-  e títulos em Instrument Serif.
+- Visual: mesma base da Pesquisa de Avanço da Travessia, com paleta grafite e areia
+  e fonte Manrope.
 
 ## Fluxo
 
-18 telas (17 se a pessoa não produz conteúdo: a tela de detalhe do conteúdo some).
-Blocos: você e o negócio, números e meta, conteúdo e captação, o que já investiu,
-onde dói e fechamento (horas por semana e quem decide junto).
+10 telas, uns 7 minutos. Só entra o que serve pra estimar uma proposta antes da call:
+ofertas atuais (pacotes, duração, valor, entrega) e clientes ativos, faturamento e meta,
+origem dos clientes, conteúdo (frequência e trava), investimento dos últimos 12 meses
+por categoria e mentorias anteriores, disposição pros próximos 12 meses, maior problema
+e prioridade de 90 dias, e quem decide junto. Toda opção "outro" abre um campo pra
+especificar, obrigatório quando marcada.

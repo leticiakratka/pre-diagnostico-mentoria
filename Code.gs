@@ -5,6 +5,11 @@
  * Recebe o POST do formulário (index.html, form 'mentoria_prediag') e grava
  * uma linha na aba "Respostas", criada sozinha no primeiro envio.
  *
+ * ATUALIZAR (quando as perguntas mudam): cole este arquivo por cima do Code.gs,
+ * Implantar → Gerenciar implantações → lápis na implantação ativa → Versão: "Nova
+ * versão" → Implantar. A URL continua a mesma. Linhas antigas ficam desalinhadas
+ * com o cabeçalho novo: apague as de teste antes.
+ *
  * DEPLOY (primeira vez):
  * 1. Crie uma planilha no Google Drive chamada "Pré-diagnóstico Mentoria".
  * 2. Extensões → Apps Script. Apague o que tiver em Code.gs e cole este arquivo.
@@ -23,29 +28,16 @@ const COLUNAS = [
   ['E-mail', 'email'],
   ['WhatsApp', 'whatsapp'],
   ['Instagram', 'instagram'],
-  ['Site', 'site'],
-  ['Tempo de atuação', 'tempo_atuacao'],
-  ['Certificações', 'certificacoes'],
-  ['Como cobra', 'cobranca'],
-  ['Ticket médio', 'ticket_medio'],
+  ['Ofertas', 'ofertas'],
   ['Clientes ativos', 'clientes_ativos'],
-  ['Equipe', 'equipe'],
-  ['Funções da equipe', 'equipe_funcoes'],
-  ['Metodologia', 'metodologia'],
   ['Faturamento mensal hoje', 'faturamento_atual'],
   ['Meta mensal em 12 meses', 'meta_faturamento'],
   ['Origem dos clientes', 'origem_clientes'],
+  ['Origem (outro)', 'origem_outro'],
   ['Canal principal', 'canal_principal'],
-  ['Reuniões de venda/mês', 'reunioes_mes'],
-  ['Fechamentos/mês', 'fechamentos_mes'],
   ['Frequência de conteúdo', 'conteudo_frequencia'],
-  ['Formatos', 'conteudo_formatos'],
-  ['Quem produz', 'conteudo_quem'],
-  ['Seguidores', 'seguidores'],
-  ['Contatos e clientes pelo conteúdo', 'clientes_conteudo'],
   ['Trava no conteúdo', 'trava_conteudo'],
   ['Trava no conteúdo (outro)', 'trava_conteudo_outro'],
-  ['Investimento 12 meses', 'investimento_12m'],
   ['Inv. tráfego', 'inv_trafego'],
   ['Inv. equipe', 'inv_equipe'],
   ['Inv. mentoria/consultoria', 'inv_mentoria'],
@@ -53,14 +45,13 @@ const COLUNAS = [
   ['Inv. ferramentas', 'inv_ferramentas'],
   ['Inv. conteúdo/agência', 'inv_conteudo'],
   ['Inv. outro', 'inv_outro'],
+  ['Inv. outro (em quê)', 'inv_outro_qual'],
   ['Mentorias anteriores', 'mentorias_anteriores'],
   ['Disposição próximos 12 meses', 'disposicao_12m'],
   ['Maior problema', 'maior_problema'],
   ['Prioridade 90 dias', 'prioridade_90d'],
-  ['O que já tentou', 'ja_tentou'],
-  ['Resultado em 6 meses', 'resultado_6m'],
-  ['Horas por semana', 'horas_semana'],
   ['Decide com', 'decisao_com'],
+  ['Decide com (quem)', 'decisao_com_outro'],
   ['utm_source', 'utm_source'],
   ['utm_medium', 'utm_medium'],
   ['utm_campaign', 'utm_campaign'],
