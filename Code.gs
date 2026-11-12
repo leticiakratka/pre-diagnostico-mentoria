@@ -5,10 +5,11 @@
  * Recebe o POST do formulário (index.html, form 'mentoria_prediag') e grava
  * uma linha na aba "Respostas", criada sozinha no primeiro envio.
  *
- * ATUALIZAR (quando as perguntas mudam): cole este arquivo por cima do Code.gs,
- * Implantar → Gerenciar implantações → lápis na implantação ativa → Versão: "Nova
- * versão" → Implantar. A URL continua a mesma. Linhas antigas ficam desalinhadas
- * com o cabeçalho novo: apague as de teste antes.
+ * Pergunta nova no formulário não exige mexer aqui: o campo desconhecido vira
+ * coluna no fim da aba, com a chave do POST como cabeçalho. Só reimplante se
+ * quiser dar nome bonito ou mudar a ordem: cole por cima do Code.gs,
+ * Implantar → Gerenciar implantações → lápis → Versão: "Nova versão" → Implantar.
+ * A URL continua a mesma.
  *
  * DEPLOY (primeira vez):
  * 1. Crie uma planilha no Google Drive chamada "Pré-diagnóstico Mentoria".
@@ -28,10 +29,16 @@ const COLUNAS = [
   ['E-mail', 'email'],
   ['WhatsApp', 'whatsapp'],
   ['Instagram', 'instagram'],
+  ['Site', 'site'],
   ['Ofertas', 'ofertas'],
   ['Clientes ativos', 'clientes_ativos'],
+  ['Equipe', 'equipe'],
+  ['Funções da equipe', 'equipe_funcoes'],
+  ['Metodologia', 'metodologia'],
   ['Faturamento mensal hoje', 'faturamento_atual'],
   ['Meta mensal em 12 meses', 'meta_faturamento'],
+  ['Reuniões de venda/mês', 'reunioes_mes'],
+  ['Fechamentos/mês', 'fechamentos_mes'],
   ['Origem dos clientes', 'origem_clientes'],
   ['Origem (outro)', 'origem_outro'],
   ['Canal principal', 'canal_principal'],
@@ -50,6 +57,7 @@ const COLUNAS = [
   ['Disposição próximos 12 meses', 'disposicao_12m'],
   ['Maior problema', 'maior_problema'],
   ['Prioridade 90 dias', 'prioridade_90d'],
+  ['Resultado em 6 meses', 'resultado_6m'],
   ['Decide com', 'decisao_com'],
   ['Decide com (quem)', 'decisao_com_outro'],
   ['utm_source', 'utm_source'],
@@ -68,12 +76,24 @@ function doPost(e) {
       sheet = ss.insertSheet(SHEET_NAME);
       sheet.setFrozenRows(1);
     }
-    // Reescreve o cabeçalho sempre: se uma pergunta nova entrar, a aba se ajusta sozinha.
-    const headers = COLUNAS.map(function(c) { return c[0]; });
+    // Cabeçalho = COLUNAS + campos extras que já apareceram + campos novos deste envio.
+    // Assim, pergunta nova no formulário vira coluna no fim da aba sem reimplantar o script.
+    const base = COLUNAS.map(function(c) { return c[0]; });
+    const atual = sheet.getLastColumn() > 0
+      ? sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].filter(String)
+      : [];
+    const extras = atual.slice(base.length);
+    const conhecidas = COLUNAS.map(function(c) { return c[1]; }).concat(['form', 'enviado_em']);
+    Object.keys(data).forEach(function(k) {
+      if (conhecidas.indexOf(k) < 0 && extras.indexOf(k) < 0) extras.push(k);
+    });
+    const headers = base.concat(extras);
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]).setFontWeight('bold');
 
     data._timestamp = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
-    const row = COLUNAS.map(function(c) { return celula(data[c[1]] || ''); });
+    const row = COLUNAS.map(function(c) { return data[c[1]]; })
+      .concat(extras.map(function(k) { return data[k]; }))
+      .map(function(v) { return celula(v || ''); });
     sheet.appendRow(row);
 
     return ContentService.createTextOutput(JSON.stringify({ status: 'ok' }))

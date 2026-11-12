@@ -352,7 +352,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="error-msg" id="err-email" style="margin-top:-8px;margin-bottom:8px;font-size:12px;">E-mail inválido. Verifique e tente novamente.</p>
     <div class="field"><label>WhatsApp (com DDD)</label><input type="tel" data-campo="whatsapp" placeholder="+55 11 99999-9999" inputmode="tel" oninput="this.value=this.value.replace(/[^\d\s\+\-\(\)]/g,'')"></div>
     <div class="field"><label>@ do Instagram profissional</label><input type="text" data-campo="instagram" placeholder="@seuperfil"></div>
-    <p class="error-msg" id="err-ident">Preencha todos os campos para continuar.</p>
+    <div class="field"><label>Site ou página (opcional)</label><input type="text" data-campo="site" placeholder="www.seusite.com.br"></div>
+    <p class="error-msg" id="err-ident">Preencha nome, e-mail, WhatsApp e Instagram para continuar.</p>
     <div class="btn-row"><button class="btn btn-back" onclick="back()">Voltar</button><button class="btn btn-primary" onclick="next()">Continuar</button></div>
   </div>
 
@@ -367,14 +368,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="btn-row"><button class="btn btn-back" onclick="back()">Voltar</button><button class="btn btn-primary" onclick="next()">Continuar</button></div>
   </div>
 
-  <!-- 3. NÚMEROS -->
+  <!-- 3. ESTRUTURA -->
+  <div class="step" id="step-estrutura">
+    <div class="step-label">Sua estrutura</div>
+    <h2>Quem trabalha com você?</h2>
+    <div class="options">
+      <div class="option" onclick="selectOption(this,'equipe','sozinho')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Trabalho sozinho</div></div></div>
+      <div class="option" onclick="selectOption(this,'equipe','1 a 2')"><div class="option-radio"></div><div class="option-text"><div class="option-title">1 a 2 pessoas</div></div></div>
+      <div class="option" onclick="selectOption(this,'equipe','3 a 5')"><div class="option-radio"></div><div class="option-text"><div class="option-title">3 a 5 pessoas</div></div></div>
+      <div class="option" onclick="selectOption(this,'equipe','6 ou mais')"><div class="option-radio"></div><div class="option-text"><div class="option-title">6 ou mais</div></div></div>
+    </div>
+    <div class="field" style="margin-top:14px"><label>Em quais funções? (opcional)</label><input type="text" data-campo="equipe_funcoes" placeholder="Ex: 1 assistente, 1 editor de vídeo freelancer"></div>
+    <h3 class="sub">Você tem uma metodologia de atendimento estruturada?</h3>
+    <div class="options">
+      <div class="option" onclick="selectOption(this,'metodologia','documentada')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Sim, documentada</div><div class="option-desc">Etapas, materiais e entregas definidos</div></div></div>
+      <div class="option" onclick="selectOption(this,'metodologia','na cabeca')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Sim, mas está na minha cabeça</div></div></div>
+      <div class="option" onclick="selectOption(this,'metodologia','ainda nao')"><div class="option-radio"></div><div class="option-text"><div class="option-title">Ainda não</div></div></div>
+    </div>
+    <p class="error-msg" id="err-estrutura">Responda as duas perguntas para continuar.</p>
+    <div class="btn-row"><button class="btn btn-back" onclick="back()">Voltar</button><button class="btn btn-primary" onclick="next()">Continuar</button></div>
+  </div>
+
+  <!-- 4. NÚMEROS -->
   <div class="step" id="step-numeros">
     <div class="step-label">Seus números</div>
     <h2>Onde você está e onde quer chegar</h2>
     <p class="question-hint">Valor aproximado já serve. É daqui que sai o tamanho do salto e o tempo pra chegar lá.</p>
     <div class="field"><label>Faturamento médio por mês hoje</label><div class="money"><input type="text" data-campo="faturamento_atual" inputmode="decimal" placeholder="15.000"></div></div>
     <div class="field"><label>Meta de faturamento por mês daqui a 12 meses</label><div class="money"><input type="text" data-campo="meta_faturamento" inputmode="decimal" placeholder="40.000"></div></div>
-    <p class="error-msg" id="err-numeros">Preencha os dois valores para continuar.</p>
+    <h3 class="sub">E na hora de vender? <span style="font-weight:400;color:var(--muted)">(média por mês, nos últimos 3 meses)</span></h3>
+    <div class="field"><label>Quantas reuniões de venda você faz por mês?</label><input type="text" data-campo="reunioes_mes" inputmode="numeric" placeholder="Ex: 8"></div>
+    <div class="field"><label>Quantas viram cliente?</label><input type="text" data-campo="fechamentos_mes" inputmode="numeric" placeholder="Ex: 3"></div>
+    <p class="error-msg" id="err-numeros">Preencha os quatro campos para continuar.</p>
     <div class="btn-row"><button class="btn btn-back" onclick="back()">Voltar</button><button class="btn btn-primary" onclick="next()">Continuar</button></div>
   </div>
 
@@ -461,7 +486,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2>Em uma frase: qual é o maior problema do seu negócio hoje?</h2>
     <div class="field"><textarea data-campo="maior_problema" placeholder="Pode escrever do jeito que vier"></textarea></div>
     <div class="field"><label>Se pudesse resolver só uma coisa nos próximos 90 dias, qual seria?</label><textarea data-campo="prioridade_90d" placeholder="A coisa que, resolvida, destrava o resto"></textarea></div>
-    <p class="error-msg" id="err-dor">Responda as duas perguntas para continuar.</p>
+    <div class="field"><label>Daqui a 6 meses, o que precisa ter acontecido pra você dizer que valeu a pena?</label><textarea data-campo="resultado_6m" placeholder="Ex: 30 clientes ativos e uma pessoa cuidando do operacional"></textarea></div>
+    <p class="error-msg" id="err-dor">Responda as três perguntas para continuar.</p>
     <div class="btn-row"><button class="btn btn-back" onclick="back()">Voltar</button><button class="btn btn-primary" onclick="next()">Continuar</button></div>
   </div>
 
@@ -519,12 +545,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     { id:'intro',        label:'Começo' },
     { id:'ident',        label:'Você',                    req:['nome','email','whatsapp','instagram'] },
     { id:'ofertas',      label:'Suas ofertas',            req:['ofertas','clientes_ativos'] },
-    { id:'numeros',      label:'Seus números',            req:['faturamento_atual','meta_faturamento'] },
+    { id:'estrutura',    label:'Sua estrutura',           req:['equipe','metodologia'] },
+    { id:'numeros',      label:'Seus números',            req:['faturamento_atual','meta_faturamento','reunioes_mes','fechamentos_mes'] },
     { id:'origem',       label:'Como os clientes chegam', req:['origem_clientes','canal_principal'], outros:[['origem_clientes','origem_outro']] },
     { id:'conteudo',     label:'Como os clientes chegam', req:['conteudo_frequencia','trava_conteudo'], outros:[['trava_conteudo','trava_conteudo_outro']] },
     { id:'investimento', label:'O que você já investiu',  req:['mentorias_anteriores'], ou:INV, extra:() => !respostas.inv_outro || preenchido('inv_outro_qual') },
     { id:'disposicao',   label:'O que você já investiu',  req:['disposicao_12m'] },
-    { id:'dor',          label:'Onde dói',                req:['maior_problema','prioridade_90d'] },
+    { id:'dor',          label:'Onde dói',                req:['maior_problema','prioridade_90d','resultado_6m'] },
     { id:'decisao',      label:'Pra fechar',              req:['decisao_com'], outros:[['decisao_com','decisao_com_outro']] }
   ];
   let atual = 0;

@@ -19,9 +19,12 @@ Vale para todo lead de diagnóstico da mentoria: o link é o mesmo pra todos.
 
 ## Fluxo
 
-10 telas, uns 7 minutos. Só entra o que serve pra estimar uma proposta antes da call:
-ofertas atuais (pacotes, duração, valor, entrega) e clientes ativos, faturamento e meta,
-origem dos clientes, conteúdo (frequência e trava), investimento dos últimos 12 meses
-por categoria e mentorias anteriores, disposição pros próximos 12 meses, maior problema
-e prioridade de 90 dias, e quem decide junto. Toda opção "outro" abre um campo pra
+11 telas, uns 8 minutos. Só entra o que serve pra estimar uma proposta antes da call:
+ofertas atuais (pacotes, duração, valor, entrega) e clientes ativos, equipe e metodologia,
+faturamento e meta, reuniões de venda e fechamentos, origem dos clientes, conteúdo (frequência e trava), investimento dos últimos 12 meses
+por categoria e mentorias anteriores, disposição pros próximos 12 meses, maior problema,
+prioridade de 90 dias e resultado esperado em 6 meses, e quem decide junto. Toda opção "outro" abre um campo pra
 especificar, obrigatório quando marcada.
+
+Pergunta nova não exige reimplantar o Apps Script: campo desconhecido vira coluna
+no fim da aba Respostas.
