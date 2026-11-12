@@ -4,7 +4,10 @@ Formulário que o planejador responde antes da sessão estratégica. As resposta
 viram a base da pré-proposta (diagnóstico, plano, duração e investimento).
 Vale para todo lead de diagnóstico da mentoria: o link é o mesmo pra todos.
 
-- Página: `index.html` (publicada na Cloudflare Pages a partir deste repositório)
+- Página: https://pre-diagnostico-mentoria.pages.dev/ (Cloudflare Pages, projeto
+  `pre-diagnostico-mentoria`, por upload direto: push no GitHub **não** publica sozinho).
+  Para publicar uma mudança, copie só o `index.html` para uma pasta vazia e rode
+  `npx wrangler pages deploy <pasta> --project-name pre-diagnostico-mentoria --branch main`.
 - Respostas: planilha "Pré-diagnóstico Mentoria", aba **Respostas**
 - Endpoint: Apps Script vinculado à planilha (`Code.gs` é a cópia de referência).
   A URL do app da Web está em `SCRIPT_URL` no `index.html`.
