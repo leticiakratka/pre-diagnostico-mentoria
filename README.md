@@ -7,7 +7,7 @@ Primeira cobaia: Pedro Sanches, sessão em 17/11/2026 às 14h.
 - Página: `index.html` (publicada na Cloudflare Pages a partir deste repositório)
 - Respostas: planilha "Pré-diagnóstico Mentoria", aba **Respostas**
 - Endpoint: Apps Script vinculado à planilha (`Code.gs` é a cópia de referência).
-  Cole a URL do app da Web em `SCRIPT_URL` no `index.html`.
+  A URL do app da Web está em `SCRIPT_URL` no `index.html`.
 - Projeto no Notion: Mentoria high ticket para planejadores financeiros (Portfólio do Plano Diretor)
 - GTM server-side: container GTM-N9GCCZSW via api.leticiakratka.com.br.
   Evento no envio: `prediag_mentoria_enviado`.
