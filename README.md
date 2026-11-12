@@ -21,14 +21,14 @@ Vale para todo lead de diagnóstico da mentoria: o link é o mesmo pra todos.
 
 ## Fluxo
 
-10 telas, uns 8 minutos. Só entra o que serve pra estimar uma proposta antes da call:
-situação hoje (planejador com clientes, assessor ou bancário, outra empresa, transição),
-ofertas atuais (pacotes, duração, valor, entrega) e clientes ativos, equipe e metodologia,
-faturamento e meta, reuniões de venda e fechamentos, origem dos clientes e se produz
-conteúdo, investimento dos últimos 12 meses por categoria e mentorias anteriores,
-disposição pros próximos 12 meses, maior desafio (até 2) com a frase do dia a dia,
-prioridade de 90 dias, resultado em 6 meses, e quem decide junto. Toda opção "outro"
-abre um campo pra especificar, obrigatório quando marcada.
+10 telas, uns 8 minutos. Versão combinada com o Leo em 12/11/2026, em voz neutra
+(sem primeira pessoa). Telas: você, sua situação (situação hoje e o que pensa daqui
+pra frente), sua oferta e clientes ativos, sua estrutura (equipe e metodologia), seus
+números (faturamento, meta, reuniões e fechamentos), como os clientes chegam (origem e
+conteúdo), o que já investiu (total obrigatório, itens opcionais, mentorias anteriores),
+o que topa investir, onde dói (até 2 desafios, frase do dia a dia, 90 dias, 6 meses) e
+quem decide junto. Toda opção "outro" abre um campo pra especificar, obrigatório
+quando marcada.
 
 Pergunta nova não exige reimplantar o Apps Script: campo desconhecido vira coluna
 no fim da aba Respostas.
