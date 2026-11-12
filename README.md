@@ -7,7 +7,9 @@ Vale para todo lead de diagnóstico da mentoria: o link é o mesmo pra todos.
 - Página: https://pre-diagnostico-mentoria.pages.dev/ (Cloudflare Pages, projeto
   `pre-diagnostico-mentoria`, por upload direto: push no GitHub **não** publica sozinho).
   Para publicar uma mudança, copie só o `index.html` para uma pasta vazia e rode
-  `npx wrangler pages deploy <pasta> --project-name pre-diagnostico-mentoria --branch main`.
+  `CLOUDFLARE_API_TOKEN=<oauth_token do wrangler> CLOUDFLARE_ACCOUNT_ID=67eb5ca561c8198ac98ab42593f1a74d npx wrangler@3 pages deploy <pasta> --project-name pre-diagnostico-mentoria --branch main`
+  (fora do terminal interativo o wrangler não usa o login salvo sozinho; o token fica em
+  ~/Library/Preferences/.wrangler/config/default.toml).
 - Respostas: planilha "Pré-diagnóstico Mentoria", aba **Respostas**
 - Endpoint: Apps Script vinculado à planilha (`Code.gs` é a cópia de referência).
   A URL do app da Web está em `SCRIPT_URL` no `index.html`.
