@@ -2,7 +2,7 @@
 
 Formulário que o planejador responde antes da sessão estratégica. As respostas
 viram a base da pré-proposta (diagnóstico, plano, duração e investimento).
-Primeira cobaia: Pedro Sanches, sessão em 17/11/2026 às 14h.
+Vale para todo lead de diagnóstico da mentoria: o link é o mesmo pra todos.
 
 - Página: `index.html` (publicada na Cloudflare Pages a partir deste repositório)
 - Respostas: planilha "Pré-diagnóstico Mentoria", aba **Respostas**
